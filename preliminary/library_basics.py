@@ -15,7 +15,9 @@ Make sure you read the docstrings C.A.R.E.F.U.L.Y (yes, I took the L to check th
 from pathlib import Path
 import cv2
 import numpy as np
+import pytesseract
 
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 VID_PATH = Path("resources/oop.mp4")
 
@@ -98,12 +100,34 @@ class CodingVideo:
 
         cv2.imwrite(str(output_path), frame)
 
+    def get_text_at_time(self, seconds: int) -> str:
+        """Returns OCR text from a video frame at a given time.
+
+        This method gets a frame from the video, converts it to RGB,
+        and uses pytesseract to read text from the image.
+
+        Reference
+        ---------
+        https://github.com/madmaze/pytesseract
+        """
+        frame_number = self.get_frame_number_at_time(seconds)
+
+        rgb_frame = self.get_frame_rgb_array(frame_number)
+
+        text = pytesseract.image_to_string(rgb_frame)
+
+        return text.strip()
+
 
 def test():
     """Try out your class here"""
     oop = CodingVideo("resources/oop.mp4")
     print(oop)
     oop.save_as_image(42)
+
+    text = oop.get_text_at_time(42)
+    print("OCR TEXT:")
+    print(text)
 
 
 if __name__ == '__main__':
