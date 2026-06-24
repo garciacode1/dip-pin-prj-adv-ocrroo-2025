@@ -187,4 +187,15 @@ body.high-contrast .validation-box {
     color: white;
     border-color: white;
 }
+.video-player-box {
+    margin-bottom: 20px;
 
+}
+
+.video-player-box video {
+    width: 100%;
+    max-height: 360px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: black;
+}
