@@ -17,14 +17,27 @@ function getTimeValue() {
 
 function validateTime() {
     const time = getTimeValue();
+    const maxDuration = 85;
 
     if (time === "") {
         message.textContent = "Please enter a time in seconds.";
         return false;
     }
 
-    if (Number(time) < 0) {
+    const timeNumber = Number(time);
+
+    if (isNaN(timeNumber)) {
+        message.textContent = "Time must be a valid number.";
+        return false;
+    }
+
+    if (timeNumber < 0) {
         message.textContent = "Time cannot be negative.";
+        return false;
+    }
+
+    if (timeNumber > maxDuration) {
+        message.textContent = "Time must be within the video duration, between 0 and 85 seconds.";
         return false;
     }
 
