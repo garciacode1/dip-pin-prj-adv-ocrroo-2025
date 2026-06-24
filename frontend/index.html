@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Video Reader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div>
+            <h1>OCR Video Reader</h1>
+            <p>Extract readable text from programming tutorial videos.</p>
+        </div>
+
+        <div class="accessibility-controls">
+            <button id="contrastBtn">High Contrast</button>
+            <button id="textSizeBtn">Large Text</button>
+            <button id="darkModeBtn">Dark Mode</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="control-panel">
+            <h2>Video Control Panel</h2>
+            <p class="small-text">Select a video frame and run OCR.</p>
+
+            <label for="videoSelect">Video</label>
+            <select id="videoSelect">
+                <option value="demo">Demo video</option>
+            </select>
+
+            <label for="timeInput">Time in seconds</label>
+            <input type="number" id="timeInput" placeholder="Example: 42" min="0">
+
+            <div class="button-group">
+                <button id="previewBtn">Preview Frame</button>
+                <button id="ocrBtn">Run OCR</button>
+            </div>
+
+            <div class="validation-box">
+                <h3>Validation Messages</h3>
+                <p id="message">No errors. Messages will appear here.</p>
+            </div>
+        </section>
+
+        <section class="preview-panel">
+            <h2>Frame Preview</h2>
+            <p class="small-text">The selected video frame will appear below.</p>
+
+            <div class="frame-box">
+                <img id="frameImage" src="" alt="Selected video frame preview">
+                <p id="framePlaceholder">Selected video frame appears here.</p>
+            </div>
+        </section>
+
+        <section class="ocr-panel">
+            <div class="ocr-header">
+                <div>
+                    <h2>OCR Result</h2>
+                    <p class="small-text">Extracted text from the selected video frame.</p>
+                </div>
+                <button id="copyBtn">Copy Text</button>
+            </div>
+
+            <pre id="ocrResult">OCR text will appear here.</pre>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
