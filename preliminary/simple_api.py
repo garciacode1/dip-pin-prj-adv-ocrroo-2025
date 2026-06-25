@@ -104,3 +104,13 @@ def video_frame_ocr(vid: str, t: int):
 
     finally:
         video_file.capture.release()
+
+@app.get("/")
+def home():
+    return {
+        "message": "OCR Video Reader API is running",
+        "endpoints": {
+            "videos": "/video",
+            "docs": "/docs"
+        }
+    }
