@@ -8,6 +8,7 @@ The project uses a Python FastAPI backend with OpenCV and pytesseract. The front
 
 This project supports users who need help reading code or text from programming videos, including users with visual impairment or users who rely more on visible text than audio.
 
+OCR accuracy depends on the quality of the video frame, text size, and image clarity. Some symbols or small text may not be recognised perfectly.
 ---
 
 ## How to run the backend
