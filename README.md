@@ -1,4 +1,3 @@
-````markdown
 # OCR Video Reader
 
 ## Project overview
@@ -174,4 +173,3 @@ The current MVP uses a preloaded video from the `resources` folder. Video upload
 
 ```
 ```
-.
